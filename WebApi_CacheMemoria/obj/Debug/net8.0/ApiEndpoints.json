@@ -1,8 +1,8 @@
 [
   {
-    "ContainingType": "WebApi_CacheMemoria.Endpoints.ProdutoEndpoints\u002B\u003C\u003Ec",
-    "Method": "\u003CMapProdutoEndpoints\u003Eb__1_0",
-    "RelativePath": "produtos",
+    "ContainingType": "MinhaApi.Endpoints.ProdutoEndpoints\u002B\u003C\u003Ec",
+    "Method": "\u003CMapProdutoEndpoints\u003Eb__0_0",
+    "RelativePath": "produtos/",
     "HttpMethod": "GET",
     "IsController": false,
     "Order": 0,
@@ -16,9 +16,9 @@
     ]
   },
   {
-    "ContainingType": "WebApi_CacheMemoria.Endpoints.ProdutoEndpoints\u002B\u003C\u003Ec",
-    "Method": "\u003CMapProdutoEndpoints\u003Eb__1_2",
-    "RelativePath": "produtos",
+    "ContainingType": "MinhaApi.Endpoints.ProdutoEndpoints\u002B\u003C\u003Ec",
+    "Method": "\u003CMapProdutoEndpoints\u003Eb__0_2",
+    "RelativePath": "produtos/",
     "HttpMethod": "POST",
     "IsController": false,
     "Order": 0,
@@ -38,8 +38,8 @@
     ]
   },
   {
-    "ContainingType": "WebApi_CacheMemoria.Endpoints.ProdutoEndpoints\u002B\u003C\u003Ec",
-    "Method": "\u003CMapProdutoEndpoints\u003Eb__1_1",
+    "ContainingType": "MinhaApi.Endpoints.ProdutoEndpoints\u002B\u003C\u003Ec",
+    "Method": "\u003CMapProdutoEndpoints\u003Eb__0_1",
     "RelativePath": "produtos/{id}",
     "HttpMethod": "GET",
     "IsController": false,
@@ -60,8 +60,8 @@
     ]
   },
   {
-    "ContainingType": "WebApi_CacheMemoria.Endpoints.ProdutoEndpoints\u002B\u003C\u003Ec",
-    "Method": "\u003CMapProdutoEndpoints\u003Eb__1_3",
+    "ContainingType": "MinhaApi.Endpoints.ProdutoEndpoints\u002B\u003C\u003Ec",
+    "Method": "\u003CMapProdutoEndpoints\u003Eb__0_3",
     "RelativePath": "produtos/{id}",
     "HttpMethod": "PUT",
     "IsController": false,
@@ -73,7 +73,7 @@
         "IsRequired": true
       },
       {
-        "Name": "produtoAtualizado",
+        "Name": "produto",
         "Type": "WebApi_CacheMemoria.Models.Produto",
         "IsRequired": true
       }
@@ -87,8 +87,8 @@
     ]
   },
   {
-    "ContainingType": "WebApi_CacheMemoria.Endpoints.ProdutoEndpoints\u002B\u003C\u003Ec",
-    "Method": "\u003CMapProdutoEndpoints\u003Eb__1_4",
+    "ContainingType": "MinhaApi.Endpoints.ProdutoEndpoints\u002B\u003C\u003Ec",
+    "Method": "\u003CMapProdutoEndpoints\u003Eb__0_4",
     "RelativePath": "produtos/{id}",
     "HttpMethod": "DELETE",
     "IsController": false,

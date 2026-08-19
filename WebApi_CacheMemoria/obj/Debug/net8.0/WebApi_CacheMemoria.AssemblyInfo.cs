@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WebApi_CacheMemoria")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0afa9b759a9ad1cc1558c6585374e0d07590204b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f9c774fc2c9c886f3cbf20542032f7198f0ddb2a")]
 [assembly: System.Reflection.AssemblyProductAttribute("WebApi_CacheMemoria")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WebApi_CacheMemoria")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -129,6 +129,10 @@
           "preco": {
             "type": "number",
             "format": "double"
+          },
+          "estoque": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false

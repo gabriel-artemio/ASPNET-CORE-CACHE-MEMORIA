@@ -1,77 +1,50 @@
-﻿using WebApi_CacheMemoria.Models;
+﻿using WebApi_CacheMemoria.BLL;
+using WebApi_CacheMemoria.Models;
 
-namespace WebApi_CacheMemoria.Endpoints
+namespace MinhaApi.Endpoints;
+
+public static class ProdutoEndpoints
 {
-    public static class ProdutoEndpoints
+    public static void MapProdutoEndpoints(
+        this WebApplication app)
     {
-        private static readonly List<Produto> produtos = new()
+        var group = app.MapGroup("/produtos");
+
+        group.MapGet("/", (ProdutoBLL produtoBLL) =>
         {
-            new Produto
-            {
-                Id = 1,
-                Nome = "Notebook",
-                Preco = 3500
-            },
-            new Produto
-            {
-                Id = 2,
-                Nome = "Mouse",
-                Preco = 100
-            }
-        };
+            var produtos = produtoBLL.Listar();
 
-        public static void MapProdutoEndpoints(this WebApplication app)
+            return Results.Ok(produtos);
+        });
+
+        group.MapGet("/{id}", (int id, ProdutoBLL produtoBLL) =>
         {
-            app.MapGet("/produtos", () =>
-            {
-                return Results.Ok(produtos);
-            });
+            var produto = produtoBLL.BuscarPorId(id);
 
-            app.MapGet("/produtos/{id}", (int id) =>
-            {
-                var produto = produtos.FirstOrDefault(x => x.Id == id);
+            return produto is null ? Results.NotFound() : Results.Ok(produto);
+        });
 
-                return produto is null
-                    ? Results.NotFound()
-                    : Results.Ok(produto);
-            });
+        group.MapPost("/", (Produto produto, ProdutoBLL produtoBLL) =>
+        {
+            var id = produtoBLL.Inserir(produto);
 
-            app.MapPost("/produtos", (Produto produto) =>
-            {
-                produto.Id = produtos.Count + 1;
+            produto.Id = id;
 
-                produtos.Add(produto);
+            return Results.Created($"/produtos/{id}", produto);
+        });
 
-                return Results.Created(
-                    $"/produtos/{produto.Id}",
-                    produto
-                );
-            });
+        group.MapPut("/{id}", (int id, Produto produto, ProdutoBLL produtoBLL) =>
+        {
+            produtoBLL.Atualizar(id, produto);
 
-            app.MapPut("/produtos/{id}", (int id, Produto produtoAtualizado) =>
-            {
-                var produto = produtos.FirstOrDefault(x => x.Id == id);
+            return Results.NoContent();
+        });
 
-                if (produto is null)
-                    return Results.NotFound();
+        group.MapDelete("/{id}", (int id, ProdutoBLL produtoBLL) =>
+        {
+            produtoBLL.Excluir(id);
 
-                produto.Nome = produtoAtualizado.Nome;
-                produto.Preco = produtoAtualizado.Preco;
-
-                return Results.Ok(produto);
-            });
-
-            app.MapDelete("/produtos/{id}", (int id) =>
-            {
-                var produto = produtos.FirstOrDefault(x => x.Id == id);
-
-                if (produto is null)
-                    return Results.NotFound();
-
-                produtos.Remove(produto);
-
-                return Results.NoContent();
-            });
-        }
+            return Results.NoContent();
+        });
     }
 }
